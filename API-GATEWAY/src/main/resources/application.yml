@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: API-GATEWAY
+
+  cloud:
+    gateway:
+      routes:
+        - id: customer-service
+          uri: lb://CUSTOMER-MGT-SERVICE
+          predicates:
+            - Path=/customers/**
+
+        - id: lead-service
+          uri: lb://LEAD-MGT-SERVICE
+          predicates:
+            - Path=/leads/**
+
+        - id: order-service
+          uri: lb://ORDER-MGT-SERVICE
+          predicates:
+            - Path=/orders/**
+
+      discovery:
+        locator:
+          enabled: true
+    admin:
+      client:
+        url: http://localhost:1111
+        enabled: true
+        auto-registration: true
+        auto-deregistration: true
+        instance:
+          name: api-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+server:
+  port: 9898
