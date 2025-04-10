@@ -8,7 +8,10 @@ In SOMS ==> There are api's to create new order and update order by orderId.
 Future plan:
 1. Add more services and endpoints
 2. Add loadbalance
-3. Bidirectional interconnection
-4. Add validation and security
-5. exception handling
-6. Add frontend
+3. Reseliance
+4. Circuitbreaker
+5. Logger 
+6. Bidirectional interconnection
+7. Add validation and security
+8. exception handling
+9. Add frontend
